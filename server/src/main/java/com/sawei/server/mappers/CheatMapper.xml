@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.sawei.server.mappers.CheatMapper">
+  <resultMap id="friend-username" type="com.sawei.server.sql.Friendship">
+    <result column="friend" property="username"/>
+  </resultMap>
+
+  <select id="getPassword" resultType="String" parameterType="String">
+    select password from webcheat.central where username=#{username}
+  </select>
+  <select id="getUser" resultType="com.sawei.server.sql.User" parameterType="String">
+    select username,snap,name from webcheat.central where username=#{username}
+  </select>
+  <select id="getMessageByDestination" resultType="com.sawei.server.sql.Message" parameterType="String">
+    select * from webcheat.messages where dst=#{dst}
+  </select>
+  <select id="getMessageBySource" resultType="com.sawei.server.sql.Message" parameterType="String">
+    select * from webcheat.messages where src=#{src}
+  </select>
+  <select id="getFriends" resultMap="friend-username" parameterType="String">
+    select friend,name,snap,alias from webcheat.friendship as f inner join webcheat.central as c on f.friend=c.username where f.master=#{master};
+  </select>
+
+  <insert id="registered" parameterType="com.sawei.server.receive.RegisterForm">
+    insert into webcheat.central (username, password, alias) values (#{username}, #{password}, #{alias})
+  </insert>
+  <delete id="clearMessageByDestination" parameterType="String">
+    delete from webcheat.messages where dst=#{dst}
+  </delete>
+
+</mapper>

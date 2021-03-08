@@ -1,0 +1,12 @@
+com\sawei\server\service\CheatService.class
+com\sawei\server\receive\RegisterForm.class
+com\sawei\server\sql\User.class
+com\sawei\server\configs\CheatAlgorithm.class
+com\sawei\server\response\FriendshipResult.class
+com\sawei\server\mappers\CheatMapper.class
+com\sawei\server\response\LoginResult.class
+com\sawei\server\sql\Message.class
+com\sawei\server\sql\Friendship.class
+com\sawei\server\ServerApplication.class
+com\sawei\server\receive\LoginForm.class
+com\sawei\server\controllers\CheatController.class
