@@ -1,0 +1,13 @@
+.el-form-item__error {
+    font-weight: bold;
+    color: coral!important;
+}
+
+.el-form-item.is-error .el-input__inner {
+    border-color: coral!important;
+}
+
+.el-form-item.is-success .el-input__inner,
+.el-form-item.is-validating .el-input__inner {
+    border-color: mediumseagreen!important;
+}
